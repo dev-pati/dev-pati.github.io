@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-body-family: Montserrat, sans-serif;
+    --font-body-weight: 400;
+    --font-body-style: normal;
+    --font-body-scale: 1;
+    --font-heading-family: Trirong, serif;
+    --font-heading-style: normal;
+    --font-heading-weight: 400;
+    --font-heading-scale: 1;
+    --jdgm-primary-color: #fa8a8a;
+    --jdgm-secondary-color: rgba(250, 138, 138, 0.1);
+    --jdgm-star-color: #fa8a8a;
+    --jdgm-write-review-text-color: white;
+    --jdgm-write-review-bg-color: #fa8a8a;
+    --jdgm-paginate-color: #fa8a8a;
+    --jdgm-border-radius: 0;
+    --jdgm-reviewer-name-color: #fa8a8a;
+  }
+
+  body {
+    @apply grid grid-cols-[100%] grid-rows-[auto_auto_1fr_auto] min-h-full m-0;
+    @apply text-[1.5rem] tracking-[0.06rem];
+
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    line-height: calc(1 + 0.8 / var(--font-body-scale));
+  }
+
+  main {
+    display: block;
+    unicode-bidi: isolate;
+  }
+
+  h1,
+  .h1 {
+    @apply text-[calc(var(--font-heading-scale)*4rem)];
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .h0,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
+    color: rgb(var(--color-foreground));
+    line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+    word-break: break-word;
+  }
+
+  a:not([href]) {
+    @apply cursor-not-allowed;
+  }
+
+  @media (min-width: 750px) {
+    body {
+      font-size: 15px;
+    }
+  }
+
+  .hided {
+    @apply !hidden;
+  }
+
+  .centered {
+    @apply text-center;
+  }
+
+  .main_section img {
+    @apply w-full;
+  }
+
+  .Desktop_only {
+    @apply !hidden md:!block;
+  }
+
+  .Mobile_only {
+    @apply !block md:!hidden;
+  }
+
+  .page-width {
+    @apply !max-w-[1340px] mx-auto px-[15px] lg:px-[50px];
+  }
+
+  .shopify-section p {
+    @apply font-['Nunito'];
+  }
+
+  .product_ugc-video {
+    @apply relative rounded-[4px] overflow-hidden cursor-pointer px-[8px] py-[4px];
+  }
+
+  .product_ugc-video img {
+    @apply w-full;
+  }
+
+  .product_ugc-video img.product_ugc-play {
+    @apply absolute w-8 h-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .product_ugc-video video {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 9 / 16;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  @import "./shopify-section-hero.css";
+  @import "./product-judge-outer.css";
+  @import "./jdgm-widget.css";
+  @import "./product-carousel-outer.css";
+}
